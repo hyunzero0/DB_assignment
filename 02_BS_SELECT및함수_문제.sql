@@ -47,13 +47,13 @@ WHERE PHONE NOT LIKE '010%';
 --     고용일이 90/01/01 ~ 00/12/01이고, 급여가 270만 이상인 사원의 전체를 조회
 SELECT *
 FROM EMPLOYEE
-WHERE EMAIL LIKE '____\_%' ESCAPE '\' AND DEPT_CODE IN ('D9', 'D6') AND HIRE_DATE BETWEEN '90/01/01' AND '00/12/01' AND SALARY >= 2700000;
+WHERE EMAIL LIKE '____*_%' ESCAPE '*' AND DEPT_CODE IN ('D9', 'D6') AND HIRE_DATE BETWEEN '90/01/01' AND '00/12/01' AND SALARY >= 2700000;
 -- 15. EMPLOYEE테이블에서 사원 명과 직원의 주민번호를 이용하여 생년, 생월, 생일 조회
 SELECT EMP_NAME, EXTRACT(YEAR FROM TO_DATE(SUBSTR(EMP_NO, 1, 6), 'RRMMDD')) AS 생년,
             EXTRACT(MONTH FROM TO_DATE(SUBSTR(EMP_NO, 1, 6), 'RRMMDD')) AS 생월,
             EXTRACT(DAY FROM TO_DATE(SUBSTR(EMP_NO, 1, 6), 'RRMMDD')) AS 생일
 FROM EMPLOYEE
-WHERE EMP_ID NOT IN (200, 201, 214); -- 생일 이상해서 뺌
+WHERE EMP_ID NOT IN (200, 201, 214); -- 생일 이상해서 제외
 -- 16. EMPLOYEE테이블에서 사원명, 주민번호 조회
 --     (단, 주민번호는 생년월일만 보이게 하고, '-'다음 값은 '*'로 바꾸기)
 SELECT EMP_NAME, RPAD(SUBSTR(EMP_NO, 1, 7), 14, '*')
