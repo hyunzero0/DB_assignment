@@ -81,9 +81,3 @@ WHERE (SYSDATE - HIREDATE) / 365 >= 38;
 --19. 오늘 날짜에서 년도만 추출
 SELECT EXTRACT(YEAR FROM SYSDATE)
 FROM DUAL;
-
-
-
-
-
-
