@@ -100,7 +100,7 @@ WHERE EMP_ID = 201;
 -- 24. EMPLOYEE테이블에서 부서코드가 D5인 직원의 보너스 포함 연봉 합 조회
 SELECT SUM((SALARY + SALARY * NVL(BONUS, 0))*12)
 FROM EMPLOYEE
-WHERE DEPT_CODE = 'D5';
+WHERE DEPT_CODE = 'D5'; 
 -- 25. EMPLOYEE테이블에서 직원들의 입사일로부터 년도만 가지고 각 년도별 입사 인원수 조회
 --      전체 직원 수, 2001년, 2002년, 2003년, 2004년
 SELECT COUNT(HIRE_DATE) AS 전체직원수, COUNT(DECODE(EXTRACT(YEAR FROM HIRE_DATE), 2001, 1)) AS "2001년",
